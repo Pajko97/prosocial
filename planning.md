@@ -12,13 +12,35 @@ Tables:
 
 resources
  id PK AI
+ user_id FOREIGN KEY - user.id
  description varchar(255)
- tags ENUM
+ tags ENUM[]
  created_at
  updated_at
 
 user
  id PK AI
+ username varchar(255)
  email varchar(255)
  password varchar(255)
+ created_at timestamp
+ updated_at timestamp
+
+company
+ id PK AI 
+ name varchar(255)
+ website_url varchar(255)
+ is_startup bool
+
+post
+ id PK AI
+ text_content varchar(255)
+ image_url varchar(255)
+ hypes int
+ likes int
+ tags ENUM[]
+ created_at timestamp
+ updated_at timestamp
+
+
  
