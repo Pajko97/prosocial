@@ -44,3 +44,5 @@ post
 
 
  
+Tech considerations:
+- API could maybe be built in .NET just to practice .NET skills

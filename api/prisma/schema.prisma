@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// schema.prisma
+
+// Define the 'user' table
+model user {
+  id          Int     @id @default(autoincrement())
+  username    String
+  email       String
+  password    String
+  created_at  DateTime
+  updated_at  DateTime
+
+  // Define a one-to-many relationship with the 'resources' table
+  resources   resource[]
+}
+
+// Define the 'company' table
+model company {
+  id            Int     @id @default(autoincrement())
+  name          String
+  website_url   String
+  is_startup    Boolean
+
+  // Define a one-to-many relationship with the 'job' table
+  jobs          job[]
+}
+
+// Define the 'post' table
+model post {
+  id             Int     @id @default(autoincrement())
+  text_content   String
+  image_url      String
+  hypes          Int
+  likes          Int
+  tags           String[]   // For ENUM arrays, Prisma uses String arrays
+  created_at     DateTime
+  updated_at     DateTime
+}
+
+// Define the 'job' table
+model job {
+  id             Int     @id @default(autoincrement())
+  title          String
+  description    String
+  views          Int
+  tags           String[]   // For ENUM arrays, Prisma uses String arrays
+  created_at     DateTime
+  updated_at     DateTime
+
+  // Define a many-to-one relationship with the 'company' table
+  company_id     Int
+  company        company   @relation(fields: [company_id], references: [id])
+}
+
+// Define the 'resources' table
+model resource {
+  id             Int     @id @default(autoincrement())
+  description    String
+  tags           String[]   // For ENUM arrays, Prisma uses String arrays
+  created_at     DateTime
+  updated_at     DateTime
+
+  // Define a many-to-one relationship with the 'user' table
+  user_id        Int
+  user           user      @relation(fields: [user_id], references: [id])
+}
