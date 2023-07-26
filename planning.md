@@ -1,48 +1,19 @@
 #### Plan for executing the app
 
 
-- Figma design
-- Database diagram
-- Back end setup ( Auth, Database )
-- UI ( React ) 
+- Figma design - IN PROGRESS
+- Database diagram - ALMOST DONE
+- Back end setup ( Auth, Database ) - IN PROGRESS
+- UI ( React ) - TO DO
 
 DB - PostgreSQL
 
-Tables:
+### Tasks:
 
-resources
- id PK AI
- user_id FOREIGN KEY - user.id
- description varchar(255)
- tags ENUM[]
- created_at
- updated_at
-
-user
- id PK AI
- username varchar(255)
- email varchar(255)
- password varchar(255)
- created_at timestamp
- updated_at timestamp
-
-company
- id PK AI 
- name varchar(255)
- website_url varchar(255)
- is_startup bool
-
-post
- id PK AI
- text_content varchar(255)
- image_url varchar(255)
- hypes int
- likes int
- tags ENUM[]
- created_at timestamp
- updated_at timestamp
+- Figure out a way to search through discord servers ( they are called guilds, didn't now that :)
+- Figure out job logic ( maybe fetch already existing sites, add internal ones on top of that )
+- Find pair --later ( for starters just the BETA version )
+- Use elastic search for making single search for all
+- Setup S3 bucket for storing pictures
 
 
- 
-Tech considerations:
-- API could maybe be built in .NET just to practice .NET skills
