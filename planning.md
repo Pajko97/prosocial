@@ -1,6 +1,5 @@
 #### Plan for executing the app
 
-
 - Figma design - IN PROGRESS
 - Database diagram - ALMOST DONE
 - Back end setup ( Auth, Database ) - IN PROGRESS
@@ -15,5 +14,3 @@ DB - PostgreSQL
 - Find pair --later ( for starters just the BETA version )
 - Use elastic search for making single search for all
 - Setup S3 bucket for storing pictures
-
-
